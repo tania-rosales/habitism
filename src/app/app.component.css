@@ -2,3 +2,7 @@
 h2 {
   font-style: italic; font-family:Verdana, Geneva, Tahoma, sans-serif; font-weight: bold; color: #2798B5;
 }
+
+a {
+  text-decoration: none;
+}
