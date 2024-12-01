@@ -1,36 +1,39 @@
-<div class="sidebar-container">
-  <div class="menu-toggle" (click)="toggleSidebar()">
-    <i class="fas fa-bars"></i>
-  </div>
-  <div class="sidebar" [class.collapsed]="isCollapsed">
-    <div class="logo">
-      <img type="image" src="../../public/favicon.ico" alt="Logo de la app" />
+<nav class="navbar navbar-expand-lg bg-body-secondary" >
+  <div class="container-fluid">
+    <a class="navbar-brand" href="frontpage">
+      <img src="/assets/logoHabitism.png" style="height: 50px; " alt="Logo">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item" *ngIf="estaLogueado()">
+          <a class="nav-link" aria-current="page" href="">Inicio</a>
+        </li>
+        <li class="nav-item" *ngIf="estaLogueado()">
+          <a class="nav-link" href="newHabit">Nuevo Hábito</a>
+        </li>
+        <li class="nav-item" *ngIf="estaLogueado()">
+          <a href="listHabits" class="nav-link">Mis hábitos</a>
+        </li>
+        <li class="nav-item" *ngIf="estaLogueado()">
+          <a class="nav-link" href="progress">Progreso</a>
+        </li>
+        <li class="nav-item" *ngIf="!estaLogueado()">
+          <h2 class="animate__animated animate__pulse">HABITISM</h2>
+        </li>
+
+      </ul>
+
+      <button class="d-flex btn btn-outline-info me-3 mb-2 mt-2" type="button" title="Iniciar sesión" *ngIf="!estaLogueado()" routerLink="/login"><i class="fa-solid fa-right-to-bracket fa-beat"></i>&nbsp;&nbsp;Iniciar Sesión</button>
+
+      <button class="d-flex btn btn-outline-primary me-3 mb-2 mt-2" type="button" title="Registrarse" *ngIf="!estaLogueado()" routerLink="/register"><i class="fa-solid fa-right-from-bracket fa-beat"></i>&nbsp;&nbsp;Registrarse</button>
+
+      <button class="d-flex btn btn-outline-danger" type="button" title="Cerrar sesión" *ngIf="estaLogueado()" (click)="logout()"><i class="fa-solid fa-right-from-bracket fa-beat"></i>&nbsp;&nbsp;Logout</button>
+
     </div>
-    <ul>
-      <li>
-        <a href="">
-          <i class="fas fa-home"></i>
-          <span>Inicio</span>
-        </a>
-      </li>
-      <li>
-        <a href="/progress">
-          <i class="fas fa-list"></i>
-          <span>Progreso</span>
-        </a>
-      </li>
-      <li>
-        <a href="/newHabit">
-          <i class="fas fa-chart-line"></i>
-          <span>Nuevo Hábito</span>
-        </a>
-      </li>
-      <li>
-        <a href="/statistics">
-          <i class="fas fa-cog"></i>
-          <span>Estadísticas</span>
-        </a>
-      </li>
-    </ul>
   </div>
-</div>
+</nav>
+
+<router-outlet></router-outlet>
