@@ -7,14 +7,17 @@ import { RegisterComponent } from './components/register/register.component';
 import { ErrorPersonalizadoComponent } from './components/error-personalizado/error-personalizado.component';
 import { ProgressComponent } from './components/progress/progress.component';
 import { StatisticsComponent } from './components/statistics/statistics.component';
+import { FrontpageComponent } from './components/frontpage/frontpage.component';
+import { LoginGuardian } from './components/login/login-guardian';
 
 export const routes: Routes = [
-  {path: "", component: HomeComponent},
-  {path: "newHabit", component: HabitFormComponent},
-  {path: "listHabits", component: HabitListComponent},
+  {path: "", component: HomeComponent, canActivate: [LoginGuardian]},
+  {path: "newHabit", component: HabitFormComponent, canActivate: [LoginGuardian]},
+  {path: "listHabits", component: HabitListComponent, canActivate: [LoginGuardian]},
+  {path: "progress", component: ProgressComponent, canActivate: [LoginGuardian]},
+  {path: "statistics", component: StatisticsComponent, canActivate: [LoginGuardian]},
+  {path: "frontpage", component: FrontpageComponent},
   {path: "login", component: LoginComponent},
   {path: "register", component: RegisterComponent},
-  {path: "progress", component: ProgressComponent},
-  {path: "statistics", component: StatisticsComponent},
   {path: "**", component: ErrorPersonalizadoComponent}
 ];
