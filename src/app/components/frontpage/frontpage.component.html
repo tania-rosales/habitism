@@ -1,0 +1,17 @@
+<div class="hero-section">
+  <h1 class="mb-4">Crea hábitos que transformen tu vida</h1>
+  <button class="cta-button animate__pulse">Comenzar ahora</button>
+</div>
+
+<div class="cards-container">
+  <div class="card" *ngFor="let card of cards">
+    <img [src]="card.image" alt="Card Image" class="card-image" />
+    <h2 class="card-title">{{ card.title }}</h2>
+    <p class="card-description">{{ card.description }}</p>
+  </div>
+</div>
+
+<footer class="footer">
+  <p>Empieza a construir el mejor tú, un hábito a la vez</p>
+  <button class="cta-footer-button">Descubre tus hábitos</button>
+</footer>
