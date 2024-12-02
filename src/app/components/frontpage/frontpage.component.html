@@ -1,6 +1,6 @@
 <div class="hero-section">
   <h1 class="mb-4">Crea hábitos que transformen tu vida</h1>
-  <button class="cta-button animate__pulse">Comenzar ahora</button>
+  <button *ngIf="true" (click)="redirigir()" class="cta-button">Comenzar ahora</button>
 </div>
 
 <div class="cards-container">
@@ -13,5 +13,5 @@
 
 <footer class="footer">
   <p>Empieza a construir el mejor tú, un hábito a la vez</p>
-  <button class="cta-footer-button">Descubre tus hábitos</button>
+  <button *ngIf="true" (click)="redirigir2()" class="cta-footer-button">Descubre tus hábitos</button>
 </footer>

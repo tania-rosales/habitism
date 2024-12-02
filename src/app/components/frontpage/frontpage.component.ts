@@ -1,14 +1,18 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit, HostListener } from '@angular/core';
+import { LoginService } from '../../services/login.service';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-frontpage',
   standalone:true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './frontpage.component.html',
   styleUrls: ['./frontpage.component.css']
 })
 export class FrontpageComponent implements OnInit {
+
+  constructor(private loginService: LoginService, private router: Router){};
   cards = [
     {
       image: 'assets/2minutos.webp',
@@ -44,6 +48,26 @@ export class FrontpageComponent implements OnInit {
         card.classList.remove('card-visible');
       }
     });
+  }
+
+  estaLogueado(){
+    return this.loginService.estaLogueado();
+  }
+
+  redirigir() {
+    if (this.estaLogueado()) {
+      this.router.navigate(['/']);  // Ruta a la que irá si está logueado
+    } else {
+      this.router.navigate(['/login']);  // Ruta a la que irá si no está logueado
+    }
+  }
+
+  redirigir2() {
+    if (this.estaLogueado()) {
+      this.router.navigate(['listHabits']);  // Ruta a la que irá si está logueado
+    } else {
+      this.router.navigate(['/login']);  // Ruta a la que irá si no está logueado
+    }
   }
 }
 
