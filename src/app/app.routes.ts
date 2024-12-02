@@ -9,6 +9,7 @@ import { ProgressComponent } from './components/progress/progress.component';
 import { StatisticsComponent } from './components/statistics/statistics.component';
 import { FrontpageComponent } from './components/frontpage/frontpage.component';
 import { LoginGuardian } from './components/login/login-guardian';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
 
 export const routes: Routes = [
   {path: "", component: HomeComponent, canActivate: [LoginGuardian]},
@@ -16,6 +17,7 @@ export const routes: Routes = [
   {path: "listHabits", component: HabitListComponent, canActivate: [LoginGuardian]},
   {path: "progress", component: ProgressComponent, canActivate: [LoginGuardian]},
   {path: "statistics", component: StatisticsComponent, canActivate: [LoginGuardian]},
+  {path: "userProfile", component: UserProfileComponent, canActivate: [LoginGuardian]},
   {path: "frontpage", component: FrontpageComponent},
   {path: "login", component: LoginComponent},
   {path: "register", component: RegisterComponent},
