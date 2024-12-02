@@ -1,1 +1,28 @@
-<p>register works!</p>
+<div class="wrapper">
+  <div class="logo">
+      <img src="assets/logoHabitism.png" alt="">
+  </div>
+  <div class="text-center mt-4 name">
+      Registrarse en Habitism
+  </div>
+  <form class="p-3 mt-3" (ngSubmit)="onRegister()">
+      <div class="form-field d-flex align-items-center">
+        <span class="fa-regular fa-user fa-flip"></span>
+        <input id="email" [(ngModel)]="email" name="email" type="email" required placeholder="Ingrese su correo"/>
+      </div>
+
+      <div class="form-field d-flex align-items-center">
+        <span class="fas fa-key fa-flip"></span>
+        <input id="password" [(ngModel)]="password" name="password" type="password" required placeholder="Ingrese su clave"/>
+      </div>
+      <button type="submit" class="btn mt-3">Registrase</button>
+      <div *ngIf="errorMessage" style="color: red; margin-top: 10px;">
+        {{ errorMessage }}
+      </div>
+  </form>
+
+  <div class="text-center fs-6">
+    <p>Ya tengo cuenta</p> 
+    <a class="text-center" href="/login">Iniciar Sesión</a>
+</div>
+</div>
