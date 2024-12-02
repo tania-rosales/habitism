@@ -23,6 +23,7 @@
     "@popperjs/core": "^2.11.8",
     "@sweetalert2/ngx-sweetalert2": "^12.4.0",
     "animate.css": "^4.1.1",
+    "animejs": "^3.2.2",
     "bootstrap": "^5.3.3",
     "firebase": "^11.0.2",
     "jquery": "^3.7.1",
