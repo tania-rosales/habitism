@@ -6,3 +6,12 @@ h2 {
 a {
   text-decoration: none;
 }
+
+#mi-perfil {
+  color: #757575;
+  margin-right: 4rem;
+}
+
+#mi-perfil:hover {
+  color: 	#212121;
+}

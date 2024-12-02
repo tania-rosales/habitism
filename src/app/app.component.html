@@ -26,6 +26,8 @@
 
       </ul>
 
+      <a class="nav-link d-flex" href="userProfile" *ngIf="estaLogueado()" id="mi-perfil" >Mi perfil</a>
+
       <button class="d-flex btn btn-outline-info me-3 mb-2 mt-2" type="button" title="Iniciar sesión" *ngIf="!estaLogueado()" routerLink="/login"><i class="fa-solid fa-right-to-bracket fa-beat"></i>&nbsp;&nbsp;Iniciar Sesión</button>
 
       <button class="d-flex btn btn-outline-primary me-3 mb-2 mt-2" type="button" title="Registrarse" *ngIf="!estaLogueado()" routerLink="/register"><i class="fa-solid fa-right-from-bracket fa-beat"></i>&nbsp;&nbsp;Registrarse</button>
