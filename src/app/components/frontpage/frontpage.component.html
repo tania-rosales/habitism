@@ -1,6 +1,6 @@
 <div class="hero-section">
   <h1 class="mb-4">Crea hábitos que transformen tu vida</h1>
-  <button *ngIf="true" (click)="redirigir()" class="cta-button">Comenzar ahora</button>
+  <button (click)="redirigir()" class="cta-button">{{ estaLogueado() ? 'Ir al Inicio' : 'Comienza Ahora' }}</button>
 </div>
 
 <div class="cards-container">
