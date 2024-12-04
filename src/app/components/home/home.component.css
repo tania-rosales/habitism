@@ -1,0 +1,13 @@
+.habits-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 16px;
+  padding: 16px;
+  justify-items: center;
+}
+
+@media (min-width: 900px) {
+  .habits-container {
+    grid-template-columns: repeat(3, 1fr); /* Tres columnas para pantallas grandes */
+  }
+}

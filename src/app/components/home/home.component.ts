@@ -4,11 +4,12 @@ import { habitModel } from '../../models/habit-form.model';
 import { habitsService } from '../../services/habit-form-services/habit-form.service';
 import { CommonModule } from '@angular/common';
 import { LoginService } from '../../services/login.service';
+import { HabitCardComponent } from '../habit-card/habit-card.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, HabitCardComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

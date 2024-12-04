@@ -1,1 +1,38 @@
-<p>habit-card works!</p>
+<div class="habit-card">
+  <!-- Nombre del hábito -->
+  <h3>{{ habit.habitName }}</h3>
+  <p><strong>Meta:</strong> {{ habit.goal }}</p>
+  <p><strong>Fecha de inicio:</strong> {{ habit.date }}</p>
+
+  <!-- Calendario -->
+  <div class="calendar-container">
+    <!-- Header del calendario -->
+    <div class="calendar-header">
+      <button (click)="changeMonth(-1)">&#8592;</button>
+      <span>{{ monthName }} {{ currentYear }}</span>
+      <button (click)="changeMonth(1)">&#8594;</button>
+    </div>
+
+    <!-- Tabla del calendario -->
+    <table class="calendar-table">
+      <thead>
+        <tr>
+          <th *ngFor="let day of daysOfWeek">{{ day }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let week of calendar">
+          <td
+            *ngFor="let day of week"
+            [ngClass]="{ 'inactive': !day, 'active-day': isDayChecked(day) }"
+          >
+            <div *ngIf="day" (click)="toggleDay(day)">
+              {{ day }}
+              <span *ngIf="isDayChecked(day)">✔️</span>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

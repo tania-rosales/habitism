@@ -1,23 +1,6 @@
-<p>home works!</p>
 
-<div class="container">
-  <table class="table table-success table-hover">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Habito</th>
-        <th scope="col">Hoy es: </th>
-        <th scope="col">Meta</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let habito of habitos; let i = index">
-        <th scope="row">{{i+1}}</th>
-        <td>{{habito.habitName}}</td>
-        <td><input 
-          type="checkbox"></td>
-        <td>{{habito.goal}}</td>
-      </tr>
-    </tbody>
-  </table>
+<div class="habits-container">
+  <div *ngFor="let habit of habitos">
+    <app-habit-card [habit]="habit"></app-habit-card>
+  </div>
 </div>
