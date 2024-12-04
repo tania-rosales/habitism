@@ -10,6 +10,7 @@ import { FrontpageComponent } from './components/frontpage/frontpage.component';
 import { UpdateHabitComponent } from './components/update-habit/update-habit.component';
 import { CalendarComponent } from './components/calendar/calendar.component';
 import { LoginGuardian } from './components/login/login-guardian';
+import { HabitCardComponent } from './components/habit-card/habit-card.component';
 
 export const routes: Routes = [
   {path: "", component: HomeComponent, canActivate: [LoginGuardian]},
@@ -18,6 +19,7 @@ export const routes: Routes = [
   {path: "listHabits", component: HabitListFatherComponent, canActivate: [LoginGuardian]},
   {path: "progress", component: ProgressComponent, canActivate: [LoginGuardian]},
   {path: "calendar", component: CalendarComponent, canActivate: [LoginGuardian]},
+  {path: "habitCard", component: HabitCardComponent, canActivate: [LoginGuardian]},
   {path: "listHabits/updateHabit/:id", component: UpdateHabitComponent, canActivate: [LoginGuardian]},
   {path: "frontpage", component: FrontpageComponent},
   {path: "login", component: LoginComponent},
