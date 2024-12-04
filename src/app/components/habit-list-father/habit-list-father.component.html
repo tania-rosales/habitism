@@ -1,0 +1,27 @@
+<br>
+
+<div class="container" >
+  <div id="buttons">
+    <button type="button" class="btn btn-outline-success" [routerLink]="'newHabit'">
+      <i class="fa-solid fa-plus fa-beat-fade"></i> Nuevo Hábito
+    </button>
+  </div>
+</div>
+
+<h2 class="text-center mt-4 mb-4">Mis hábitos</h2>
+
+<div class="container">
+  <div id="contenedor-habitos" *ngIf="bandera; else noHabitos">
+      <app-habit-list *ngFor="let habito of habitos; let i = index" [habitosLista]="habito" [indice]="i"></app-habit-list>
+  </div>
+</div>
+
+<ng-template #noHabitos>
+  
+  <div class="card">
+    <div class="card-body">
+      <h6 class="card-subtitle mb-2 text-body-secondary text-center">No se encontraron hábitos para este usuario</h6> 
+    </div>
+  </div>
+</ng-template>
+<br><br>

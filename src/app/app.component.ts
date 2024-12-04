@@ -13,7 +13,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './app.component.css'
 })
 export class AppComponent implements OnInit{
-
+  email: string | null = null;
   constructor (private loginService: LoginService){}
   
   ngOnInit(): void {
@@ -21,6 +21,12 @@ export class AppComponent implements OnInit{
         apiKey: "AIzaSyCT6HdpFe8G23oGrOjYn-YrndcyCb4Ryl4",
         authDomain: "habitism-85fa5.firebaseapp.com"
       });
+
+      this.loginService.getEmail().subscribe(
+        (email) => {
+          this.email = email;
+        }
+      )
   }
 
   estaLogueado(){
@@ -30,5 +36,5 @@ export class AppComponent implements OnInit{
   logout(){
     this.loginService.logout();
   }
-
 }
+

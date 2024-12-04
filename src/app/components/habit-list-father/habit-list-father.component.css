@@ -1,0 +1,12 @@
+#contenedor-habitos {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); 
+  justify-content:flex-start; 
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  #contenedor-habitos {
+      grid-template-columns: repeat(4, 1fr);
+  }
+}

@@ -26,7 +26,7 @@
 
       </ul>
 
-      <a class="nav-link d-flex mb-2 mt-2" href="userProfile" *ngIf="estaLogueado()" id="mi-perfil" >Mi perfil</a>
+      <p class="nav-link d-flex mb-2 mt-2" *ngIf="estaLogueado()" id="mi-perfil" >{{ email }}</p>
 
       <button class="d-flex btn btn-outline-info me-3 mb-2 mt-2" type="button" title="Iniciar sesión" *ngIf="!estaLogueado()" routerLink="/login"><i class="fa-solid fa-right-to-bracket fa-beat"></i>&nbsp;&nbsp;Iniciar Sesión</button>
 

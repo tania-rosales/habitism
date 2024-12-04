@@ -1,1 +1,62 @@
-<p>habit-form works!</p>
+<br>
+
+<h3 class="text-center">Nuevo Hábito</h3><br>
+
+
+
+<div class="container" id="nuevoHabito"><br><br>
+  <form class="form-group" name="form-nuevo-habito" id="form-nuevo-habito" #formNuevoHabito="ngForm">
+
+    <div class="form-group row">
+      
+      <div class="form-group col-md-4">
+        <label for="nombre">Nombre del Habito:</label>
+        <input type="text" name="hábito" id="hábito" placeholder="Por ejemplo: Hacer ejercicio" class="form-control" [(ngModel)]="cuadroHabitName" required minlength="3" #habito="ngModel">
+        <div *ngIf="habito.invalid && habito.touched" class="text-danger">
+          <small *ngIf="habito.errors?.['required']">El nombre del hábito es obligatorio.</small>
+          <small *ngIf="habito.errors?.['minlength']">El nombre del hábito debe tener al menos 3 caracteres.</small>
+        </div>
+      </div>
+  
+      <div class="form-group col-md-4">
+        <label for="goal">Meta:</label>
+        <input type="number" name="goal" id="goal" placeholder="Número de veces que desea cumplir el hábito en el mes" class="form-control" [(ngModel)]="cuadroGoal" required min ="1" max="28" #goal="ngModel">
+        <div *ngIf="goal.invalid && goal.touched" class="text-danger">
+          <small *ngIf="goal.errors?.['required']">Por favor ingrese su meta</small>
+          <small *ngIf="goal.errors?.['min']">No se pueden ingresar valores negativos</small>
+          <small *ngIf="goal.errors?.['max']">El máximo mensual es de 28 días</small>
+        </div>
+  
+      </div>
+  
+      <div class="form-group col-md-4">
+        <label for="fecha">Fecha:</label>
+        <input type="date" [max]="maxDate" name="fecha" id="fecha" class="form-control" [(ngModel)]="cuadroDate" required #fecha="ngModel">
+        <div *ngIf="fecha.invalid && fecha.touched" class="text-danger">
+          <small *ngIf="fecha.errors?.['required']">Por favor ingresa la fecha</small>
+        </div>
+      </div>
+    </div>
+    <div class="form-group row mt-4">
+  
+      <div class="form-group col-md-12">
+        <textarea class="form-control" id="description" name="description" [(ngModel)]="cuadroDescription" rows="3" required minlength="15" maxlength="80" #descripcion="ngModel" placeholder="Ingrese una descripción del hábito"></textarea>
+  
+        <div *ngIf="descripcion.invalid && descripcion.touched" class="text-danger">
+          <small *ngIf="descripcion.errors?.['required']">La descripción es obligatoria.</small>
+          <small *ngIf="descripcion.errors?.['minlength']">La descripción debe tener al menos 15 caracteres.</small>
+          <small *ngIf="descripcion.errors?.['maxlength']">La descripción no debe ser mayor a 80 caracteres.</small>
+        </div>
+  
+      </div>
+  
+    </div>
+  
+  <div class="text-center">
+    <button type="submit" class="btn btn-success me-4 mt-4" (click)="guardar_habito()" routerLink="" [disabled]="formNuevoHabito.invalid"><i class="fa-solid fa-check fa-beat"></i> CONFIRMAR</button>
+    <button type="submit" class="btn btn-primary me-4 mt-4" (click)="limpiarFormulario(formNuevoHabito)"><i class="fa-solid fa-broom fa-beat"></i> LIMPIAR FORMULARIO</button>
+  </div>
+
+  </form>
+  <br><br>
+</div>

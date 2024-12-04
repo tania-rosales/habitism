@@ -1,0 +1,12 @@
+.custom-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.custom-card .card-body {
+  flex-grow: 1; /* Permite al cuerpo de la tarjeta ocupar el espacio disponible */
+}
+
+.custom-card .card-footer {
+  text-align: center;
+}

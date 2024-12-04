@@ -1,1 +1,16 @@
-<p>habit-list works!</p>
+<div class="card" style="width: 18rem; height: 17rem;">
+  <div class="card-body">
+    <h5 class="card-title">{{indice+1}}.- {{ habitosLista.habitName}}</h5>
+    <h6 class="card-subtitle mb-2 text-body-secondary">Meta: {{habitosLista.goal}} días</h6>
+    <p class="card-text">Fecha: {{habitosLista.date}}</p>
+    <div style="height: 7rem;"><p class="card-text">Descripción: {{habitosLista.description}}</p></div>
+    
+    
+    <div class="text-center">
+      <a class="btn btn-outline-warning me-2" style="text-align: center;" [routerLink]="['updateHabit', indice]" [queryParams]="{accion: '1'}"><i class="fa-solid fa-pen-to-square fa-beat"></i> Actualizar</a>
+    <a class="btn btn-outline-danger" [routerLink]="['updateHabit', indice]" [queryParams]="{accion: '2'}"><i class="fa-solid fa-trash-can fa-beat"></i> Eliminar</a>
+    </div>
+    
+  </div>
+</div>
+<br>

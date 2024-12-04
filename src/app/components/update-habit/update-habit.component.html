@@ -1,0 +1,77 @@
+<div class="container" id="nuevoHabito"><br><br>
+  <div class="card p-4" *ngIf="accion===1" (ngSubmit)="accion_habito()">
+    <h5 class="text-center">Actualizar Hábito</h5>
+    <form class="form-group" name="form-nuevo-habito" id="form-nuevo-habito" #formNuevoHabito="ngForm" >
+
+      <div class="form-group row">
+        
+        <div class="form-group col-md-4">
+          <label for="nombre">Nombre del Habito:</label>
+          <input type="text" name="hábito" id="hábito" placeholder="Por ejemplo: Hacer ejercicio" class="form-control" [(ngModel)]="cuadroHabitName" required minlength="3" #habito="ngModel">
+          <div *ngIf="habito.invalid && habito.touched" class="text-danger">
+            <small *ngIf="habito.errors?.['required']">El nombre del hábito es obligatorio.</small>
+            <small *ngIf="habito.errors?.['minlength']">El nombre del hábito debe tener al menos 3 caracteres.</small>
+          </div>
+        </div>
+    
+        <div class="form-group col-md-4">
+          <label for="goal">Meta:</label>
+          <input type="number" name="goal" id="goal" placeholder="Número de veces que desea cumplir el hábito en el mes" class="form-control" [(ngModel)]="cuadroGoal" required min ="1" max="28" #goal="ngModel">
+          <div *ngIf="goal.invalid && goal.touched" class="text-danger">
+            <small *ngIf="goal.errors?.['required']">Por favor ingrese su meta</small>
+            <small *ngIf="goal.errors?.['min']">No se pueden ingresar valores negativos</small>
+            <small *ngIf="goal.errors?.['max']">El máximo mensual es de 28 días</small>
+          </div>
+    
+        </div>
+    
+        <div class="form-group col-md-4">
+          <label for="fecha">Fecha:</label>
+          <input type="date" [max]="maxDate" name="fecha" id="fecha" class="form-control" [(ngModel)]="cuadroDate" required #fecha="ngModel">
+          <div *ngIf="fecha.invalid && fecha.touched" class="text-danger">
+            <small *ngIf="fecha.errors?.['required']">Por favor ingresa la fecha</small>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row mt-4">
+    
+        <div class="form-group col-md-12">
+          <textarea class="form-control" id="description" name="description" [(ngModel)]="cuadroDescription" rows="3" required minlength="15" maxlength="80" #descripcion="ngModel" placeholder="Ingrese una descripción del hábito"></textarea>
+    
+          <div *ngIf="descripcion.invalid && descripcion.touched" class="text-danger">
+            <small *ngIf="descripcion.errors?.['required']">La descripción es obligatoria.</small>
+            <small *ngIf="descripcion.errors?.['minlength']">La descripción debe tener al menos 15 caracteres.</small>
+            <small *ngIf="descripcion.errors?.['maxlength']">La descripción no debe ser mayor a 80 caracteres.</small>
+          </div>
+    
+        </div>
+    
+      </div>
+    
+    <div class="text-center mt-4">
+      <button type="submit" class="btn btn-outline-success" [disabled]="formNuevoHabito.invalid"><i class="fa-solid fa-pen-to-square fa-beat"></i> Actualizar Habito</button>
+        <button (click)="volverHome()" class="btn btn-outline-secondary ms-2"><i class="fa-solid fa-xmark fa-beat"></i> Cancelar</button>
+    </div>
+  
+    </form>
+  </div>
+
+  <!-- Card acción eliminar -->
+
+  <div *ngIf="accion === 2" class="card mt-4" style="width: 30rem;" id="datos_a_eliminar">
+    <div class="card-body">
+      <h5 class="card-title">Confirmar eliminación de <span style="color: red; font-weight: bold;">{{ cuadroHabitName }}</span></h5>
+      <p class="card-text"><strong>Hábito:</strong> {{ cuadroHabitName }}</p>
+      <p class="card-text"><strong>Meta:</strong> {{ cuadroGoal }}</p>
+      <p class="card-text"><strong>Fecha:</strong> {{ cuadroDate }}</p>
+      <p class="card-text"><strong>Descripcion:</strong> ${{ cuadroDescription }}</p>
+      <div class="text-center">
+        <button (click)="accion_habito()" class="btn btn-outline-danger"><i class="fa-solid fa-trash-can fa-beat"></i> Eliminar Hábito</button>
+        <button (click)="volverHome()" class="btn btn-outline-secondary ms-2"><i class="fa-solid fa-xmark fa-beat"></i> Cancelar</button>
+      </div>
+    </div>
+  </div>
+<!-- Fin card con los datos del habito a eliminar -->
+</div>
+  <br><br>
+
