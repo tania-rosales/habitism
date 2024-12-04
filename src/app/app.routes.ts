@@ -6,7 +6,6 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ErrorPersonalizadoComponent } from './components/error-personalizado/error-personalizado.component';
 import { ProgressComponent } from './components/progress/progress.component';
-import { StatisticsComponent } from './components/statistics/statistics.component';
 import { FrontpageComponent } from './components/frontpage/frontpage.component';
 import { UpdateHabitComponent } from './components/update-habit/update-habit.component';
 import { CalendarComponent } from './components/calendar/calendar.component';
@@ -18,7 +17,6 @@ export const routes: Routes = [
   {path: "listHabits/newHabit", component: HabitFormComponent, canActivate: [LoginGuardian]},
   {path: "listHabits", component: HabitListFatherComponent, canActivate: [LoginGuardian]},
   {path: "progress", component: ProgressComponent, canActivate: [LoginGuardian]},
-  {path: "statistics", component: StatisticsComponent, canActivate: [LoginGuardian]},
   {path: "calendar", component: CalendarComponent, canActivate: [LoginGuardian]},
   {path: "listHabits/updateHabit/:id", component: UpdateHabitComponent, canActivate: [LoginGuardian]},
   {path: "frontpage", component: FrontpageComponent},
