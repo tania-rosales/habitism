@@ -18,6 +18,7 @@ export class HabitCardComponent implements OnInit {
   monthName: string = '';
   daysOfWeek: string[] = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
   checkedDays: Set<string> = new Set(); // Días seleccionados en la card
+  checkedDaysCount: number = 0; // Contador de días chequeados
 
   constructor(private calendarService: CalendarService) {}
 
@@ -33,6 +34,7 @@ export class HabitCardComponent implements OnInit {
       this.currentYear
     );
     this.monthName = this.calendarService.getMonthName(this.currentMonth);
+    this.updateCheckedDaysCount(); // Actualizar el contador al cargar el calendario
   }
 
   changeMonth(offset: number): void {
@@ -56,8 +58,10 @@ export class HabitCardComponent implements OnInit {
     const dayKey = `${this.currentYear}-${this.currentMonth + 1}-${day}`;
     if (this.checkedDays.has(dayKey)) {
       this.checkedDays.delete(dayKey);
+      this.checkedDaysCount--; // Disminuir el contador si se desmarca el día
     } else {
       this.checkedDays.add(dayKey);
+      this.checkedDaysCount++; // Aumentar el contador si se marca el día
     }
   }
 
@@ -67,5 +71,9 @@ export class HabitCardComponent implements OnInit {
     const dayKey = `${this.currentYear}-${this.currentMonth + 1}-${day}`;
     return this.checkedDays.has(dayKey);
   }
-}
 
+  updateCheckedDaysCount(): void {
+    // Inicializar el contador de días chequeados al cargar el calendario
+    this.checkedDaysCount = this.checkedDays.size;
+  }
+}
